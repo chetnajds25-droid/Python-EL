@@ -1,10 +1,13 @@
-import random
+import random  # Used to generate a random choice for the computer
 
+# Display the game title
 print("🎮 ROCK, PAPER, SCISSORS GAME 🎮")
 
+# Initialize both scores to 0
 player_score = 0
 computer_score = 0
 
+# Keep the game running until the user chooses Exit
 while True:
     print("\nChoose one:")
     print("1. Rock")
@@ -12,38 +15,52 @@ while True:
     print("3. Scissors")
     print("4. Exit")
 
+    # Take the player's choice as input
     choice = input("Enter your choice: ")
 
+    # Exit the game if the player chooses option 4
     if choice == "4":
         break
 
+    # Check whether the entered choice is valid
     if choice not in ["1", "2", "3"]:
         print("Invalid choice! Please try again.")
         continue
 
+    # Store the three possible choices in a list
     choices = ["Rock", "Paper", "Scissors"]
+
+    # Convert the player's number into the corresponding choice
     player = choices[int(choice) - 1]
+
+    # Computer randomly selects Rock, Paper, or Scissors
     computer = random.choice(choices)
 
+    # Display both choices
     print("You chose:", player)
     print("Computer chose:", computer)
 
+    # Check if both players selected the same choice
     if player == computer:
         print("It's a Draw!")
 
+    # Check all the conditions in which the player wins
     elif (player == "Rock" and computer == "Scissors") or \
          (player == "Paper" and computer == "Rock") or \
          (player == "Scissors" and computer == "Paper"):
         print("🎉 You Win!")
-        player_score += 1
+        player_score += 1  # Increase player's score by 1
 
+    # If it is not a draw and the player did not win, computer wins
     else:
         print("Computer Wins!")
-        computer_score += 1
+        computer_score += 1  # Increase computer's score by 1
 
+    # Display the current scores
     print("Your Score:", player_score)
     print("Computer Score:", computer_score)
 
+# Display the final result after the player exits
 print("\n🏆 GAME OVER 🏆")
 print("Final Score:")
 print("You:", player_score)
