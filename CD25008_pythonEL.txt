@@ -1,0 +1,50 @@
+import random
+
+print("🎮 ROCK, PAPER, SCISSORS GAME 🎮")
+
+player_score = 0
+computer_score = 0
+
+while True:
+    print("\nChoose one:")
+    print("1. Rock")
+    print("2. Paper")
+    print("3. Scissors")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "4":
+        break
+
+    if choice not in ["1", "2", "3"]:
+        print("Invalid choice! Please try again.")
+        continue
+
+    choices = ["Rock", "Paper", "Scissors"]
+    player = choices[int(choice) - 1]
+    computer = random.choice(choices)
+
+    print("You chose:", player)
+    print("Computer chose:", computer)
+
+    if player == computer:
+        print("It's a Draw!")
+
+    elif (player == "Rock" and computer == "Scissors") or \
+         (player == "Paper" and computer == "Rock") or \
+         (player == "Scissors" and computer == "Paper"):
+        print("🎉 You Win!")
+        player_score += 1
+
+    else:
+        print("Computer Wins!")
+        computer_score += 1
+
+    print("Your Score:", player_score)
+    print("Computer Score:", computer_score)
+
+print("\n🏆 GAME OVER 🏆")
+print("Final Score:")
+print("You:", player_score)
+print("Computer:", computer_score)
